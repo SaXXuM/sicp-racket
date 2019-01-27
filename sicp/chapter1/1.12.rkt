@@ -1,0 +1,23 @@
+#lang racket/base
+(require rackunit)
+
+(define (pascal n m)
+    (cond ((= m 1) 1)
+        ((= n m) 1)
+        (else (+ (pascal (- n 1) (- m 1)) (pascal (- n 1) m)))))
+
+(check-equal? (pascal 1 1) 1)
+(check-equal? (pascal 2 1) 1)
+(check-equal? (pascal 2 2) 1)
+(check-equal? (pascal 3 1) 1)
+(check-equal? (pascal 3 2) 2)
+(check-equal? (pascal 3 3) 1)
+(check-equal? (pascal 4 1) 1)
+(check-equal? (pascal 4 2) 3)
+(check-equal? (pascal 4 3) 3)
+(check-equal? (pascal 4 4) 1)
+(check-equal? (pascal 5 1) 1)
+(check-equal? (pascal 5 2) 4)
+(check-equal? (pascal 5 3) 6)
+(check-equal? (pascal 5 4) 4)
+(check-equal? (pascal 5 5) 1)
